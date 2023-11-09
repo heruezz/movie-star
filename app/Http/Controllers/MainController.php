@@ -43,4 +43,13 @@ class MainController extends Controller
             'topRated' => $topRated
         ]);
     }
+
+    public function upcoming()
+    {
+        $upcoming = ApiMovieService::getUpcoming();
+        return view('upcoming', [
+            'title' => 'Upcoming',
+            'upcoming' => $upcoming
+        ]);
+    }
 }

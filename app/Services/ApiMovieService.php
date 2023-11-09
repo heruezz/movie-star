@@ -29,4 +29,12 @@ class ApiMovieService
         ]);
         return json_decode($response?->getBody()?->getContents())->results;
     }
+
+    public static function getUpcoming(){
+        $response = Http::acceptJson()->get(env('APP_MOVIE_URL'). '/upcoming',[
+            'api_key' => env('APP_MOVIE_KEY'),
+            'language' => 'en-US'
+        ]);
+        return json_decode($response?->getBody()?->getContents())->results;
+    }
 }
