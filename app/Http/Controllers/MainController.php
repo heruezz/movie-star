@@ -52,4 +52,14 @@ class MainController extends Controller
             'upcoming' => $upcoming
         ]);
     }
+
+    public function detail($id)
+    {
+        $detail = ApiMovieService::getDetail($id);
+        return view('detail', [
+            'title' => 'Detail',
+            'detail' => $detail
+        ]);
+        // dd($data);
+    }
 }

@@ -14,7 +14,7 @@
                                 <h5 class="card-title">{{ $item->original_title }}</h5>
                                 Vote : {{ number_format($item->vote_average, 2) }}
                                 <div class="text-end">
-                                    <a href="/detail"
+                                    <a href="/detail/{{ $item->id }}"
                                         class="btn btn-outline-primary stretched-link">Preview</a>
                                 </div>
                             </div>
