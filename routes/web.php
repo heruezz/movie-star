@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::get('/now-playing', [MainController::class, 'nowPlaying'])->name('now-playing');
 Route::get('/popular', [MainController::class, 'popular'])->name('popular');
+Route::get('/top-rated', [MainController::class, 'topRated'])->name('top-rated');
 
 

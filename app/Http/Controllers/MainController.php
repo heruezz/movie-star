@@ -34,4 +34,13 @@ class MainController extends Controller
             'popular' => $popular
         ]);
     }
+
+    public function topRated()
+    {
+        $topRated = ApiMovieService::getTopRated();
+        return view('top-rated', [
+            'title' => 'Top Rated',
+            'topRated' => $topRated
+        ]);
+    }
 }
