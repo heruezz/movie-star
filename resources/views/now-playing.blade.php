@@ -5,7 +5,7 @@
             <div class="row">
                 <h4 class="text-xl font-semibold capitalize">Now Playing</h4>
                 @foreach ($nowPlaying as $item)
-                    <div class="col-lg-3 col-md-4">
+                    <div class="col-lg-3 col-md-4 mt-4">
                         <div class="card">
                             <img class="card-img-top"
                                 src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $item->poster_path }}"
