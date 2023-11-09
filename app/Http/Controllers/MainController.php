@@ -17,4 +17,12 @@ class MainController extends Controller
         ]);
     }
 
+    public function nowPlaying()
+    {
+        $np = ApiMovieService::getNowPlaying();
+        return view('now-playing', [
+            'title' => 'Now Playing',
+            'nowPlaying' => $np,
+        ]);
+    }
 }
