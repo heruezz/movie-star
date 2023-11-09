@@ -25,4 +25,13 @@ class MainController extends Controller
             'nowPlaying' => $np,
         ]);
     }
+
+    public function popular()
+    {
+        $popular = ApiMovieService::getPopular();
+        return view('popular', [
+            'title' => 'Popular',
+            'popular' => $popular
+        ]);
+    }
 }

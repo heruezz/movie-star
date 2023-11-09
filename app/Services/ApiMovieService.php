@@ -13,4 +13,12 @@ class ApiMovieService
         ]);
         return json_decode($response?->getBody()?->getContents())->results;
     }
+
+    public static function getPopular(){
+        $response = Http::acceptJson()->get(env('APP_MOVIE_URL'). '/popular',[
+            'api_key' => env('APP_MOVIE_KEY'),
+            'language' => 'en-US'
+        ]);
+        return json_decode($response?->getBody()?->getContents())->results;
+    }
 }
