@@ -6,36 +6,40 @@ use Illuminate\Support\Facades\Http;
 
 class ApiMovieService
 {
-    public static function getNowPlaying() {
+    public static function getNowPlaying($page) {
         $response = Http::acceptJson()->get(env('APP_MOVIE_URL'). '/now_playing',[
             'api_key' => env('APP_MOVIE_KEY'),
-            'language' => 'en-US'
+            'language' => 'en-US',
+            'page' => $page
         ]);
-        return json_decode($response?->getBody()?->getContents())->results;
+        return json_decode($response?->getBody()?->getContents());
     }
 
-    public static function getPopular(){
+    public static function getPopular($page){
         $response = Http::acceptJson()->get(env('APP_MOVIE_URL'). '/popular',[
             'api_key' => env('APP_MOVIE_KEY'),
-            'language' => 'en-US'
+            'language' => 'en-US',
+            'page' => $page
         ]);
-        return json_decode($response?->getBody()?->getContents())->results;
+        return json_decode($response?->getBody()?->getContents());
     }
 
-    public static function getTopRated(){
+    public static function getTopRated($page){
         $response = Http::acceptJson()->get(env('APP_MOVIE_URL'). '/top_rated',[
             'api_key' => env('APP_MOVIE_KEY'),
-            'language' => 'en-US'
+            'language' => 'en-US',
+            'page' => $page
         ]);
-        return json_decode($response?->getBody()?->getContents())->results;
+        return json_decode($response?->getBody()?->getContents());
     }
 
-    public static function getUpcoming(){
+    public static function getUpcoming($page){
         $response = Http::acceptJson()->get(env('APP_MOVIE_URL'). '/upcoming',[
             'api_key' => env('APP_MOVIE_KEY'),
-            'language' => 'en-US'
+            'language' => 'en-US',
+            'page' => $page
         ]);
-        return json_decode($response?->getBody()?->getContents())->results;
+        return json_decode($response?->getBody()?->getContents());
     }
 
     public static function getDetail($id) {
