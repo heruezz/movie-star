@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [MainController::class, 'index'])->name('home');
+Route::get('/now-playing', [MainController::class, 'nowPlaying'])->name('now-playing');
+Route::get('/popular', [MainController::class, 'popular'])->name('popular');
+Route::get('/top-rated', [MainController::class, 'topRated'])->name('top-rated');
+Route::get('/upcoming', [MainController::class, 'upcoming'])->name('upcoming');
+Route::get('/detail/{id}', [MainController::class, 'detail'])->name('detail');
+Route::get('/search', [MainController::class, 'search'])->name('search');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
