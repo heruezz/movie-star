@@ -91,7 +91,11 @@ class MainController extends Controller
 
     public function search()
     {
-        $data = ApiMovieService::getMovie(request('search'));
+        $search = ApiMovieService::getMovie(request('search'), request('page'));
+        $perPage = 20;
+        $data = new LengthAwarePaginator($search->results, $search->total_results, $perPage,request('page'), [
+            'path' => LengthAwarePaginator::resolveCurrentPath(),
+        ]);
         return view('search', [
             'title' => 'Search',
             'titlePage' => request('search'),

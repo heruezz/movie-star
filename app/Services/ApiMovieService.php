@@ -50,12 +50,13 @@ class ApiMovieService
         return json_decode($response?->getBody()?->getContents());
     }
 
-    public static function getMovie($search) {
+    public static function getMovie($search, $page) {
         $response = Http::acceptJson()->get(env('APP_SEARCH_MOVIE_URL'),[
             'query' => $search,
             'api_key' => env('APP_MOVIE_KEY'),
             'language' => 'en-US',
+            'page' => $page
         ]);
-        return json_decode($response?->getBody()?->getContents())->results;
+        return json_decode($response?->getBody()?->getContents());
     }
 }
