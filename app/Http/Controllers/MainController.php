@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Services\ApiMovieService;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
     public function index()
     {
         $np = ApiMovieService::getNowPlaying();
-        // dd($np);
-
         return view('home', [
             'title' => 'Home',
             'nowPlaying' => $np,
@@ -60,6 +59,15 @@ class MainController extends Controller
             'title' => 'Detail',
             'detail' => $detail
         ]);
-        // dd($data);
+    }
+
+    public function search()
+    {
+        $data = ApiMovieService::getMovie(request('search'));
+        return view('search', [
+            'title' => 'Search',
+            'titlePage' => request('search'),
+            'data' => $data
+        ]);
     }
 }

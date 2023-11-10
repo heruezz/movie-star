@@ -19,5 +19,6 @@ Route::get('/popular', [MainController::class, 'popular'])->name('popular');
 Route::get('/top-rated', [MainController::class, 'topRated'])->name('top-rated');
 Route::get('/upcoming', [MainController::class, 'upcoming'])->name('upcoming');
 Route::get('/detail/{id}', [MainController::class, 'detail'])->name('detail');
+Route::get('/search', [MainController::class, 'search'])->name('search');
 
 
