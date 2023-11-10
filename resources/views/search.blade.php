@@ -4,6 +4,9 @@
         <section class="col-span-10 col-start-2">
             <div class="row">
                 <h4>{{ $titlePage }}</h4>
+                @if ($data->total() == 0)
+                <h2 class="text-center"> Oooppss.... Data Tidak ditemukan </h2>
+                @endif
                 @foreach ($data as $item)
                     <div class="col-lg-3 col-md-4 mt-4">
                         <div class="card">
